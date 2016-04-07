@@ -21,7 +21,7 @@ public class Main{
 
 	public Main(){
 		//**JFRAME CONSTRUCTOR
-        t.initBoard();
+        t.init();
 
 		this.frame = new JFrame("Tic-tac-toe");
 
@@ -63,8 +63,16 @@ public class Main{
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        t.setPosition(x, y, 'O');
-                        ((JButton) e.getSource()).setText("O");
+                        t.setPosition(x, y, (JButton) e.getSource());
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                char winner;
+                                if ((winner = t.getWinner()) != ' ') {
+                                    System.out.println(winner);
+                                }
+                            }
+                        }.start();
                     }
                 });
                 gridPanel.add(button);
