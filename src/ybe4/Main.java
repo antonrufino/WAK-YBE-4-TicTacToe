@@ -5,11 +5,15 @@
 
 package ybe4;
 
+import ybe4.game.TicTacToe;
+
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Main{
 	private JFrame frame;
+    private static TicTacToe t = TicTacToe.getInstance();
 
 	public static void main(String[] args){
 		new Main();
@@ -17,6 +21,8 @@ public class Main{
 
 	public Main(){
 		//**JFRAME CONSTRUCTOR
+        t.initBoard();
+
 		this.frame = new JFrame("Tic-tac-toe");
 
 		this.frame.add(addComponents());
@@ -48,9 +54,22 @@ public class Main{
 		GridLayout grid = new GridLayout(3,3,5,5);
 		gridPanel.setLayout(grid);
 
-		for (int i=0; i<9; i++){
-			gridPanel.add(new Button(""));
-		}
+		for (int i=0; i<3; i++) {
+            for (int j=0; j<3; j++) {
+                final int x = i;
+                final int y = j;
+
+                JButton button = new JButton("");
+                button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        t.setPosition(x, y, 'O');
+                        ((JButton) e.getSource()).setText("O");
+                    }
+                });
+                gridPanel.add(button);
+            }
+        }
 		return gridPanel;
 	}
 }
