@@ -6,6 +6,8 @@
 package ybe4;
 
 import ybe4.game.TicTacToe;
+import ybe4.threads.WinnerThread;
+import ybe4.listeners.GameOnClickListener;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -56,28 +58,12 @@ public class Main{
 
 		for (int i=0; i<3; i++) {
             for (int j=0; j<3; j++) {
-                final int x = i;
-                final int y = j;
-
                 JButton button = new JButton("");
-                button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        t.setPosition(x, y, (JButton) e.getSource());
-                        new Thread() {
-                            @Override
-                            public void run() {
-                                char winner;
-                                if ((winner = t.getWinner()) != ' ') {
-                                    System.out.println(winner);
-                                }
-                            }
-                        }.start();
-                    }
-                });
+                button.addActionListener(new GameOnClickListener(i, j, t));
                 gridPanel.add(button);
             }
         }
+
 		return gridPanel;
 	}
 }
