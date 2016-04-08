@@ -2,10 +2,10 @@ package ybe4.threads;
 
 import ybe4.game.TicTacToe;
 
-public class WinnerThread implements Runnable {
+public class GetWinnerThread implements Runnable {
     private TicTacToe t;
 
-    public WinnerThread(TicTacToe t) {
+    public GetWinnerThread(TicTacToe t) {
         this.t = t;
     }
 

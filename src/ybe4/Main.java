@@ -6,7 +6,6 @@
 package ybe4;
 
 import ybe4.game.TicTacToe;
-import ybe4.threads.WinnerThread;
 import ybe4.listeners.GameOnClickListener;
 
 import java.awt.*;
