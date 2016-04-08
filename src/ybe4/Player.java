@@ -1,3 +1,5 @@
+package ybe4;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -39,7 +41,7 @@ public class Player{
 
 		panel.setLayout(gridbag);
 		panel.setBorder(BorderFactory.createEmptyBorder(50,50,50,50));
-		
+
 		//**PLAYER1
 
 		gbc.fill = GridBagConstraints.BOTH;
@@ -49,7 +51,7 @@ public class Player{
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		panel.add(name1);
 		gridbag.setConstraints(name1, gbc);
-		
+
 		//**PLAYER2
 
 		gbc.fill = GridBagConstraints.BOTH;
@@ -70,12 +72,12 @@ public class Player{
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		panel.add(bestof);
 		gridbag.setConstraints(bestof, gbc);
-		
+
 		//BUTTONS
 
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 2.0;
-		gbc.gridwidth = 2;                
+		gbc.gridwidth = 2;
         gbc.gridheight = 1;
 
         panel.add(new JLabel(""));
