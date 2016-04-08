@@ -11,7 +11,7 @@ public class HorizontalWinnerThread extends WinnerThread implements Runnable {
     public void run() {
         char winner;
         if ((winner = this.t.getHorizontalWinner()) != ' ') {
-            System.out.println(winner + "wins!");
+            System.out.println(winner + " wins!");
 			
         }
     }

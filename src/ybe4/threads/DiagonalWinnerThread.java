@@ -11,7 +11,8 @@ public class DiagonalWinnerThread extends WinnerThread implements Runnable {
     public void run() {
         char winner;
         if ((winner = this.t.getDiagonalWinner()) != ' ') {
-            System.out.println(winner + "wins!");
+            System.out.println(winner + " wins!");
+			t.join();
         }
     }
 }
