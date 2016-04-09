@@ -3,6 +3,8 @@ package ybe4.threads;
 import ybe4.game.TicTacToe;
 
 public class DiagonalWinnerThread extends WinnerThread implements Runnable {
+    private TicTacToe t;
+
     public DiagonalWinnerThread(TicTacToe t) {
         super(t);
     }
@@ -12,7 +14,6 @@ public class DiagonalWinnerThread extends WinnerThread implements Runnable {
         char winner;
         if ((winner = this.t.getDiagonalWinner()) != ' ') {
             System.out.println(winner + " wins!");
-			t.join();
         }
     }
 }
