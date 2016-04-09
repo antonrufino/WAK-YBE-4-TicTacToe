@@ -1,3 +1,3 @@
 build:
-	javac -d bin -sourcepath src src/ybe4/*.java
+	javac -d bin src/*.java
 	jar cfe Exer4.jar ybe4.Main -C bin .
